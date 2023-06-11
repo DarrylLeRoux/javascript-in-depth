@@ -10,3 +10,14 @@
 
     HINT: Use setTimeout for the delay
 */
+
+console.log('Program started'); // 1
+
+const prom = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Program Complete');
+  }, 3000);
+});
+
+console.log(prom); // 2
+console.log('Program in progress');
