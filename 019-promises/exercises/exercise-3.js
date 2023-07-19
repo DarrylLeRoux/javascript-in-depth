@@ -29,3 +29,78 @@
 
     BONUS: WHY does it work this way?
 */
+// console.log('Program started');
+// const myPromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve({ data: 'Hello, friend!', error: null });
+//   }, 5000);
+// });
+
+// // The timer function below shows the creation of a Promise object and how resolve(value) and reject(error) are used.
+// function timer(time) {
+//   /* When a promise is created, the 'executor' function is run automatically. It accepts 'resolve' and 'reject' functions as  parameters. A promise is said to be settled when it’s either fulfilled (resolve() is called) or rejected (reject() is called).*/
+//   return new Promise((resolve, reject) => {
+//     if (isNaN(time)) reject(error, 'Enter a number'); // If number is not passed in, invoke reject.
+//     let secs = time * 1000;
+//     setTimeout(function () {
+//       resolve(time); // Invoke resolve when time has elapsed. Pass in time variable.
+//     }, secs);
+//   });
+// }
+
+// timer('hi').then((val) => console.log('done', val)); // Display the value in the console after 5 seconds.Output
+
+// const myPromise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('I was first promise declared');
+//   }, 2000);
+// });
+
+// const myPromise2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('I was second promise declared');
+//   }, 1100);
+// });
+
+// const collectedPromises = [myPromise, myPromise2];
+
+// Promise.any(collectedPromises).then((val) => console.log(val));
+
+// fetch('https://swapi.dev/api/');
+
+// async function getTodo(id) {
+//   try {
+//     let url = 'https://jsonplaceholder.typicode.com/todos/' + id;
+//     let resp = await fetch(url); // await the promise to resolve
+//     let results = await resp.json(); // await the promise to resolve
+//     console.log(results);
+//   } catch (err) {
+//     // catch error if it occurs
+//     console.error('Problem fetching data', err);
+//   }
+// }
+// getTodo(5);
+
+// async function getData() {
+//   try {
+//     let resp1 = await fetch('https://swapi.dev/api/'); // await initial fetch request
+//     let urls = await resp1.json(); // await json() method
+//     let resp2 = await fetch(urls.people); // await second fetch request
+//     let results = await resp2.json(); // await json() method
+//     console.log(results);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+// getData();
+
+let diff = Math.floor(Date.now() / 1000);
+console.log('Started at 0 seconds');
+setTimeout(() => {
+  let t = Math.floor(Date.now() * 1000) - diff;
+  console.log(`processed at ${t} seconds`);
+}, 1000); // X number of setTimeout calls are inserted here...
+setTimeout(() => {
+  let t = Math.floor(Date.now() / 1000) - diff;
+  console.log(`processed at ${t} seconds`);
+}, 1000);
